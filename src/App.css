@@ -2,11 +2,16 @@
   background-color: #282c34;
   text-align: center;
   height: 100vh;
+}
+.App2{
+  background-color: #282c34;
+  text-align: center;
+  height: 100%;
 
 }
 .img{
   height: 30vh;
-  width: 50vh;
+  width: 30vh;
   margin: 20px;
 }
 
@@ -18,7 +23,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #282c34;
 }
 
 .App-link {
@@ -60,3 +65,12 @@
   justify-content: center;
 
 }
+
+.languagesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Change this value according to your desired column count */
+  gap: 20px; /* This is the space between the grid items */
+  padding: 20px; /* This is the space around the grid */
+}
+
+

@@ -1,20 +1,29 @@
 import React, { useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-import Polly from './Polly';
-import AWS from "aws-sdk";
 import { speak } from './speak';
+import prompting from './prompting.json';
 
-const API_KEY = "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";
-const systemMessage = {
-  "role": "system", 
-  "content": "You are a language teacher. Your name is 李友。  Do not write pin yin. You are going to teach me chinese. Find out my current level and then teach me more from that point.You should practice conversation, teach me vocab, and teach me grammer. Keep your responces less than 5 sentences."
-}
+const API_KEY = process.env.REACT_APP_API_KEY;
 
-const ChatGPTComponent = () => {
+
+
+function ChatGPTComponent(props){
+
+  const aiMessage = prompting.languages[props.language].aiMessage
+  const langCode = prompting.languages[props.language].srLangCode
+
+
+  const systemMessage = {
+    "role": "system", 
+    "content": `${aiMessage}`
+  };
+
   const [input, setInput] = useState("Talk to me.");
   const [isTyping, setIsTyping] = useState(false);
   const [messages, setMessages] = useState([systemMessage]);
   const [lastMessage,setLastMessage] = useState("Hey I am your tutor");
+
+  
 
   const handleSend = async () => {
     console.log(messages)
@@ -26,6 +35,7 @@ const ChatGPTComponent = () => {
     setMessages([...messages, newMessage]);
     await processMessageToChatGPT([...messages, newMessage]);
   };
+  
   
   
 
@@ -58,7 +68,7 @@ const ChatGPTComponent = () => {
 
         setLastMessage(aiMessage.content);
 
-        speak(aiMessage.content, (url) => {
+        speak(prompting.languages[props.language].voiceID,prompting.languages[props.language].langCode ,aiMessage.content, (url) => {
           const audio = new Audio(url);
           audio.play();
         }, (err) => {
@@ -82,7 +92,7 @@ const ChatGPTComponent = () => {
   }
 
   const handleRecordClick = () => {
-    SpeechRecognition.startListening({ language: 'zh-CN' });
+    SpeechRecognition.startListening({ language: langCode });
   }
 
   const handleStopClick = () => {
@@ -90,30 +100,32 @@ const ChatGPTComponent = () => {
     setInput(transcript);
   }
 
-
-
+  
   return (
-    <div className='inputArea'>
-      <input className="inputBox"
-        type="text"
-        value= {input}
-        onChange={e => setInput(e.target.value)}
-      />
-      
-      <button className='submitButton' onClick={handleSend}>
-        Submit
-      </button>
-      <div>
-        <div className='recordButtonsContainer'>
-          <button className='recordButtons' onClick={handleRecordClick}>Record</button>
-          <button className='recordButtons' onClick={handleStopClick}>Stop</button>
+    <div className='App'>
+      <div className='App-header'>
+        <div className='inputArea'>
+          <h2>{props.language} Tutor</h2>
+          <input className="inputBox"
+            type="text"
+            value= {input}
+            onChange={e => setInput(e.target.value)}
+          />
+          
+          <button className='submitButton' onClick={handleSend}>
+            Submit
+          </button>
+          <div>
+            <div className='recordButtonsContainer'>
+              <button className='recordButtons' onClick={handleRecordClick}>Record</button>
+              <button className='recordButtons' onClick={handleStopClick}>Stop</button>
+            </div>
+          </div>
+          <div>
+          <p>{lastMessage}</p>
+          </div>
         </div>
-      </div>
-      <div>
-      <p>{lastMessage}</p>
-      </div>
-
-
+    </div>
     </div>
   );
 };

@@ -1,19 +1,23 @@
 import './App.css';
 import ChatGPT3Component from './ChatGPTComponent';
-import Polly from './Polly';
-import teacher from './components/chineseTeacher.jpeg';
+import { Route, Routes } from "react-router-dom";
+import HomePage from './components/Pages/HomePage';
+import LearningPage from './components/LearningPage';
 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      <h2>Language Tutor!</h2>
-      <img className='img' src={teacher}/>
-        <div>
-          <ChatGPT3Component/>
-        </div>
-      </header>
+    <div>
+      <Routes>
+        <Route path="/" element= {<HomePage/>}/>
+
+        <Route path="/chat-Chinese" element= {<LearningPage language = 'Chinese'/>}/>
+        <Route path="/chat-Spanish" element= {<LearningPage language = 'Spanish'/>}/>
+        <Route path="/chat-French" element= {<LearningPage language = 'French'/>}/>
+        <Route path="/chat-Arabic" element= {<LearningPage language = 'Arabic'/>}/>
+
+
+    </Routes>
     </div>
   );
 }

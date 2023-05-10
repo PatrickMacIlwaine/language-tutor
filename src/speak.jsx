@@ -8,12 +8,12 @@ AWS.config.update({
 
 const polly = new AWS.Polly();
 
-export function speak(text, onSuccess, onError) {
+export function speak(voiceID, langCode, text, onSuccess, onError) {
   const params = {
     OutputFormat: "mp3",
     Text: text,
-    VoiceId: "Zhiyu", // You can use different voices here
-    LanguageCode: "cmn-CN",
+    VoiceId: voiceID, 
+    LanguageCode: langCode,
     TextType: "text"
   };
 
