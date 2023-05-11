@@ -2,7 +2,7 @@ import './App.css';
 import ChatGPT3Component from './ChatGPTComponent';
 import { Route, Routes } from "react-router-dom";
 import HomePage from './components/Pages/HomePage';
-import LearningPage from './components/LearningPage';
+import LearningPage from './components/Pages/LearningPage';
 
 
 function App() {

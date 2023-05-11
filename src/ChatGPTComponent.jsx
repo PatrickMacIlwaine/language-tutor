@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { speak } from './speak';
 import prompting from './prompting.json';
+import classes from './ChatGPTComponent.module.css';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -18,7 +19,7 @@ function ChatGPTComponent(props){
     "content": `${aiMessage}`
   };
 
-  const [input, setInput] = useState("Talk to me.");
+  const [input, setInput] = useState("Hello!");
   const [isTyping, setIsTyping] = useState(false);
   const [messages, setMessages] = useState([systemMessage]);
   const [lastMessage,setLastMessage] = useState("Hey I am your tutor");
@@ -102,31 +103,39 @@ function ChatGPTComponent(props){
 
   
   return (
-    <div className='App'>
-      <div className='App-header'>
-        <div className='inputArea'>
-          <h2>{props.language} Tutor</h2>
-          <input className="inputBox"
+    <div>
+      <h1 className = {classes.header}>{props.language} Tutor</h1>
+      
+      <div className={classes.objectGrid}>
+        
+        <input className={classes.inputBox}
             type="text"
             value= {input}
             onChange={e => setInput(e.target.value)}
-          />
-          
-          <button className='submitButton' onClick={handleSend}>
-            Submit
-          </button>
-          <div>
-            <div className='recordButtonsContainer'>
-              <button className='recordButtons' onClick={handleRecordClick}>Record</button>
-              <button className='recordButtons' onClick={handleStopClick}>Stop</button>
-            </div>
-          </div>
-          <div>
-          <p>{lastMessage}</p>
-          </div>
+            />
+
+        <button className={classes.submit} onClick={handleSend}>
+          Submit
+        </button>
+
+      </div>
+
+
+      <div>
+        <div className={classes.recordingButtons}>
+          <button className={classes.record} onClick={handleRecordClick}>Record</button>
+          <button className={classes.stop} onClick={handleStopClick}>Stop</button>
         </div>
+      </div>
+          
+      <div>
+      <h2>{prompting.languages[props.language].aiName} :</h2>
+      <p>{lastMessage}</p>
+      </div>
+      
+  
     </div>
-    </div>
+
   );
 };
 

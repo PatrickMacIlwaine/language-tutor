@@ -1,0 +1,55 @@
+.header{
+  justify-content: center;
+  font-style: oblique;
+}
+
+.objectGrid{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-content: center;
+  object-position: center;
+}
+
+.submit{
+  justify-content: center;
+  height: 20.7vh;
+  width: 10vw;
+  background-color: white;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-bottom: 10px;
+}
+
+.inputBox{
+  width: 59vw;
+  margin-left: 10px;
+  height: 20vh;
+  border: 1px solid #080606;
+  background-color: white;
+  font-size: large;
+  margin-left: 10px;
+  margin-right: 2px;
+}
+
+.recordingButtons{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-left: 10px;
+}
+
+.record{
+  height: 10vh;
+  width: 40vw;
+  justify-content: center;
+  background-color: rgb(202, 88, 88);
+
+}
+.stop{
+  height: 10vh;
+  width: 29vw;
+  background-color: rgb(142, 142, 142);
+}
+
+
+
+

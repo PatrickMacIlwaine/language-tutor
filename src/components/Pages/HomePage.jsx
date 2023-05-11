@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React, { Fragmen, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import chineseImg from '../images/chineseTeacher.jpeg';
-import spanishImg from '../images/spanishImg.jpeg';
-import arabicImg from '../images/ArabicIMG.jpeg';
-import frenchImg from '../images/FrenchIMG.jpeg';
-
-
+import chineseImg from '../images/chinaFlag.png';
+import spanishImg from '../images/spanishFlag.png';
+import arabicImg from '../images/arabicFlag.png';
+import frenchImg from '../images/franceFlag.png';
+import classes from './HomePage.module.css';
+import FunWord from '../FunWord';
 
 
 
@@ -14,44 +14,56 @@ export default function HomePage(){
   function HandleClick(url){
     let path = url;
     navigate(path);
-  
+  }
+  const [count,setCount] = useState(0);
+  const [index,setIndex] = useState(count);
+
+  const org = ["Language Practice！", "语 言 练 习!", "¡practica de lenguaje!", "ممارسة اللغة!"]
+
+  const changeIndex = () =>{
+    setCount(count+1);
+
+    setIndex(count % 4);
   }
   
 
   return (
-    <div>
-      <div className="App2">
-        <header className="App-header">
-        <h2>Language Tutor!</h2>
+    <div >
+      <div className={classes.main}>
+        <header className= {classes.org}>
+          <button className={classes.funwordButton} onClick={changeIndex}>
+          <FunWord name = {org[index]} />
+         </button>
         </header>
-
+      <div className={classes.header}>
+      
       <h2>Please select the lanuage you want to practice</h2>
+      </div>
 
-      <div classname = 'languagesGrid'>
-        <div className= 'item'>
-          <button onClick={HandleClick.bind(this, '/chat-Chinese')}>
+      <div classname = {classes.languagesGrid}>
+         
+          <button className={classes.language} onClick={HandleClick.bind(this, '/chat-Chinese')}>
+            <img className={classes.flag}  src = {chineseImg} />
             <h2>Chinese</h2>
-            <img src = {chineseImg} className='img' />
           </button>
-        </div>
-        <div className= 'item'>
-          <button onClick={HandleClick.bind(this, '/chat-Spanish')}>
+      
+          <button  className={classes.language} onClick={HandleClick.bind(this, '/chat-Spanish')}>
+            <img className={classes.flag} src = {spanishImg} />
             <h2>Spanish</h2>
-            <img src = {spanishImg} className='img'/>
           </button>
-        </div>
-        <div className= 'item'>
-          <button onClick={HandleClick.bind(this, '/chat-French')}>
+
+
+          <button className={classes.language}  onClick={HandleClick.bind(this, '/chat-French')}>
+            <img className={classes.flag} src = {frenchImg} />
             <h2>French</h2>
-            <img src = {frenchImg}className='img' />
           </button>
-        </div>
-        <div className= 'item'>
-          <button onClick={HandleClick.bind(this, '/chat-Arabic')}>
+ 
+
+          <button className = {classes.language} onClick={HandleClick.bind(this, '/chat-Arabic')}>
+            <img className={classes.flag} src = {arabicImg} />
             <h2>Arabic</h2>
-            <img src = {arabicImg}className='img' />
           </button>
-        </div>
+    
       
         </div>
       

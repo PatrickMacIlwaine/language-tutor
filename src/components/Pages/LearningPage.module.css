@@ -1,0 +1,15 @@
+.Page{
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr;
+  
+}
+
+.leftSide{
+  justify-content: center;
+
+}
+.rightSide{
+  justify-content: center;
+
+}

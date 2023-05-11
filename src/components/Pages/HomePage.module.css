@@ -1,0 +1,39 @@
+.main{
+  background-color: rgb(255, 255, 255);
+  justify-content: center;
+}
+.org{
+  justify-content: left;
+  display: grid;
+  margin: 1%;
+}
+.header{
+  justify-content: center;
+  display: grid;
+}
+.languagesGrid{
+  display: grid;
+  justify-content: center;
+  object-position: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 200px; 
+}
+.language{
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20%;
+  margin: 1%;
+  height: 27vh;
+  width: 25vh;
+}
+.language:hover{
+  font-size: larger;
+}
+
+.flag{
+  border-radius: 30%;
+}
+.funwordButton{
+  background-color: white;
+  border: none;
+}

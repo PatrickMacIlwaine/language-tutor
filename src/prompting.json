@@ -3,12 +3,13 @@
   {
     "Chinese" :
     {
-      "aiMessage" : "You are a language teacher. Your name is 李友。  Do not write pin yin. You are going to teach me chinese. Find out my current level and then teach me more from that point.You should practice conversation, teach me vocab, and teach me grammer. Keep your responces less than 4 sentences",
+      "aiMessage" : "You are a language teacher. Your name is 李友。Do not write pin yin. You are going to teach me chinese. Find out my current level and then teach me more from that point.You should practice conversation, teach me vocab, and teach me grammer. Keep your responces less than 4 sentences",
       "langCode" : "cmn-CN",
       "voiceID" : "Zhiyu",
       "srLangCode": "zh-CN",
       "imgURL" : "./langauge-tutor/src/components/images/chineseIMg.jpeg",
-      "googleLangCode" : "zh-CN"
+      "googleLangCode" : "zh-CN",
+      "aiName": "李友"
     },
     "Spanish" :
     {
@@ -17,7 +18,9 @@
       "voiceID" : "Mia",
       "srLangCode": "es-MX",
       "imgURL" : "./langauge-tutor/src/components/images/spanishImg.jpeg",
-      "googleLangCode" : "es"
+      "googleLangCode" : "es",
+      "aiName": "Mia"
+
     },
     "French" :
     {
@@ -26,7 +29,9 @@
       "voiceID" : "Lea",
       "srLangCode": "fr-FR",
       "imgURL" : "./langauge-tutor/src/components/images/FrenchIMG.jpeg",
-      "googleLangCode" : "fr"
+      "googleLangCode" : "fr",
+      "aiName": "Lea"
+
 
 
     },
@@ -37,7 +42,9 @@
       "voiceID" : "Zeina",
       "srLangCode": "ar-JO",
       "imgURL" : "./langauge-tutor/src/components/images/ArabicIMG.jpeg",
-      "googleLangCode" : "ar"
+      "googleLangCode" : "ar",
+      "aiName": "Zeina"
+
 
 
     }

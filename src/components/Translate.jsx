@@ -1,13 +1,14 @@
 import axios from 'axios';
 import { useState } from 'react';
 import prompting from '../prompting.json';
+import classes from './Translate.module.css';
 
 export default function Translate(props) {
 
   const langCode = prompting.languages[props.language].googleLangCode
   console.log(langCode);
   const [input, setInput] = useState("");
-  const [tranlsation, setTranslation] = useState("default");
+  const [tranlsation, setTranslation] = useState("");
 
 
 const GoogleTranslateService = {
@@ -41,14 +42,13 @@ async function handleClick(){
 }
 
 return (
-  <div>
-    <h1>Translate</h1>
-    <input className="inputBox"
+  <div className={classes.main}>
+    <h2 className={classes.header} >Quick Translate</h2>
+    <input className={classes.inputBox}
       type="text"
       text={input}
       onChange={e => setInput(e.target.value)}/>
-    <button className='submitButton' onClick={handleClick}>Translate</button>
-    <h2>Translation</h2>
+    <button className={classes.submitButton} onClick={handleClick}>Translate</button>
     <p>{tranlsation}</p>
   </div>
 );

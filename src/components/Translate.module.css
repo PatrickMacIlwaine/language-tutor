@@ -1,0 +1,24 @@
+.header{
+  justify-content: center;
+  font-style: oblique;
+}
+
+.main{
+  justify-content: center;
+  height: 50vh;
+  margin: 10px;
+}
+.title{
+
+}
+
+.inputBox{
+  height: 10vh;
+  overflow-wrap: break-word;
+
+}
+.submitButton{
+  height: 10vh;
+  margin: 10px;
+
+}
