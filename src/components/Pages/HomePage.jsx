@@ -1,4 +1,4 @@
-import React, { Fragmen, useState } from 'react';
+import React, { Fragmen, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import chineseImg from '../images/chinaFlag.png';
 import spanishImg from '../images/spanishFlag.png';
@@ -10,7 +10,26 @@ import FunWord from '../FunWord';
 
 
 export default function HomePage(){
+
+  function isAllowed(){
+    if(localStorage.getItem("isAllowed") == process.env.REACT_APP_ADMIN_PASSWORD){
+      console.log("access granted.");
+      return true;
+    }
+  }
   let navigate = useNavigate();
+
+  useEffect(() =>{
+    if (!isAllowed()){
+      navigate("/")
+    }
+  })
+
+
+
+
+
+
   function HandleClick(url){
     let path = url;
     navigate(path);

@@ -1,14 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { speak } from './speak';
 import prompting from './prompting.json';
 import classes from './ChatGPTComponent.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 
 
 function ChatGPTComponent(props){
+
+  function isAllowed(){
+    if(localStorage.getItem("isAllowed") == process.env.REACT_APP_ADMIN_PASSWORD){
+      console.log("access granted.");
+      return true;
+    }
+  }
+  let navigate = useNavigate();
+
+  useEffect(() =>{
+    if (!isAllowed()){
+      navigate("/")
+    }
+  })
+
+
+
+
 
   const aiMessage = prompting.languages[props.language].aiMessage
   const langCode = prompting.languages[props.language].srLangCode

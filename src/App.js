@@ -3,13 +3,15 @@ import ChatGPT3Component from './ChatGPTComponent';
 import { Route, Routes } from "react-router-dom";
 import HomePage from './components/Pages/HomePage';
 import LearningPage from './components/Pages/LearningPage';
+import LandingPage from './components/Pages/LandingPage';
 
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element= {<HomePage/>}/>
+        <Route path = "/" element = {<LandingPage/>}/>
+        <Route path="/home" element= {<HomePage/>}/>
 
         <Route path="/chat-Chinese" element= {<LearningPage language = 'Chinese'/>}/>
         <Route path="/chat-Spanish" element= {<LearningPage language = 'Spanish'/>}/>
