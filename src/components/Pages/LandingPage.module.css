@@ -1,12 +1,11 @@
 .body{
+  display: flex;
   height: 100vh;
   width: 100vw;
   background-color: black;
   overflow: hidden;
-  display: grid;
-  grid-template-rows: auto; 
-  justify-content: center;
   align-items: center;
+  flex-direction: column; 
 }
 .text{
   color: white;
@@ -14,9 +13,48 @@
 }
 .input{
   height: 5vh;
-  width: 20vw;
+  width: 50vw;
+  box-sizing: border-box;
+  margin-left: 2vw;
+  margin-right: 2vw;
 }
 .button{
-  height: 5vh;
-  width: 10vh;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  transition-duration: .3s;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  margin-top: 10px;
+}
+.grid{
+  gap:1rem;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  box-sizing: border-box;
+  column-width: 80%;
+}
+.colSpan{
+  grid-column: span 2 span 2;
+  box-sizing: border-box;
+}
+.label{
+  color: white;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+.roundedPage{
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  --tw-bg-opacity: 1;
+  background-color: rgb(20 20 20/var(--tw-bg-opacity));
+  border-radius: 40px;
+  position: relative;
+
 }
